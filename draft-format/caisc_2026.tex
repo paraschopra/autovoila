@@ -1,0 +1,619 @@
+% Submission template for the Conference For AI Scientists (CAISc 2026).
+% Based on the agents4science 2025 template, itself derived from NeurIPS 2025.
+%
+% Changes from agents4science 2025 template:
+% - All references rebranded from agents4science to CAISc 2026
+% - Fixed typos in involvement checklist macros (\involvmentTODO, \involementA)
+% - Added authorship policy (human authors only, per OpenReview guidelines)
+% - Added archival policy paragraph (archival and non-archival submission options)
+% - Added upfront section on mandatory checklists with hyperlinked references
+% - Reorganised Section 1: style file options as dedicated subsection with usage examples
+% - Consolidated retrieval of style files into flowing paragraph
+% - Added Track-specific instructions as a new top-level section (Open-ended and Verifiable)
+% - Added "AI systems used" as item 5 in AI Involvement Checklist (anonymized in submission)
+% - Renamed Paper Checklist to Reproducibility and Responsibility Checklist
+% - Workshop references removed (not applicable for inaugural edition)
+% - Standardized all section and subsection headings to Title Case
+% - Changed document title from "Formatting Instructions" to "Submission Template For CAISc 2026"
+% - Updated Code of Ethics checklist to reference NeurIPS Code of Ethics with exception clause for CAISc AI authorship policies
+% - Added iteration effort scale (Low/Medium/High/NA/Unclear) to AI Involvement Checklist items 1--4
+% - Restructured AI Involvement Checklist into two subsections: Research Stage Assessment (items 1--4) and AI System Documentation (items 5--6)
+% - Added introductory paragraph previewing both checklist subsections
+% - Updated item 6 question to ask for specific limitations and failure modes
+% - Updated Mandatory Checklists description to reflect new checklist structure
+%
+% Last revision: 14 April 2026
+
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading caisc_2026
+
+% ready for submission
+\usepackage{caisc_2026}
+
+% to compile a preprint version, e.g., for submission to arXiv, add the
+% [preprint] option:
+%     \usepackage[preprint]{caisc_2026}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{caisc_2026}
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{caisc_2026}
+
+% Workshop options are not available for CAISc 2026 (inaugural edition).
+% They may be added in future years as the conference expands.
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+
+\title{Submission Template For CAISc 2026}
+
+
+% IMPORTANT: Only list human authors in the \author{} block. Do not list AI
+% systems (e.g., ChatGPT, Claude, AI Scientist) as authors. The role of AI
+% in your research should be documented in the AI Involvement Checklist instead.
+% This follows OpenReview authorship guidelines.
+%
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+
+\author{%
+  David S.~Hippocampus\thanks{Use footnote for providing further information
+    about author (webpage, alternative address), \emph{not} for acknowledging
+    funding agencies.} \\
+  Department of Computer Science\\
+  Cranberry-Lemon University\\
+  Pittsburgh, PA 15213 \\
+  \texttt{hippo@cs.cranberry-lemon.edu} \\
+  % examples of more authors
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \AND
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+  % \And
+  % Coauthor \\
+  % Affiliation \\
+  % Address \\
+  % \texttt{email} \\
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  The abstract paragraph should be indented \nicefrac{1}{2}~inch (3~picas) on both the left- and right-hand margins. Use 10~point type, with a vertical spacing (leading) of 11~points.  The word \textbf{Abstract} must be centered, bold, and in point size 12. Two line spaces precede the abstract. The abstract must be limited to one paragraph.
+\end{abstract}
+
+\section{Submission of Papers to CAISc 2026}
+
+Please read the instructions below carefully and follow them faithfully.
+
+\subsection{Style}
+
+Papers to be submitted to CAISc 2026 must be prepared according to the instructions presented here. Papers may only be up to {\bf eight} pages long, including figures. Additional pages \emph{containing references, checklist, and the optional technical appendices} do not count as content pages. Papers that exceed the page limit will not be reviewed, or in any other way considered for presentation at the conference.
+
+Authors are required to use the CAISc \LaTeX{} style files obtainable at the conference website as indicated below. Please make sure you use the current files and not previous versions. Tweaking the style files may be grounds for rejection.
+
+\subsection{Retrieval of Style Files}
+
+The style files for CAISc and other conference information are available on the website at \url{https://caisc2026.github.io/cfp.html}. The file \verb+caisc_2026.tex+ contains these instructions and illustrates the various formatting requirements your paper must satisfy. The only supported style file for CAISc 2026 is \verb+caisc_2026.sty+, rewritten for \LaTeXe{}. The file \verb+caisc_2026.tex+ may be used as a ``shell'' for writing your paper. All you have to do is replace the author, title, abstract, and text of the paper with your own. The formatting instructions contained in these style files are summarized in Sections \ref{gen_inst}, \ref{headings}, and \ref{others} below.
+
+\subsection{Style File Options}
+\label{style_options}
+
+The \LaTeX{} style file supports three optional arguments that control the mode of compilation. At submission time, do not use any of these options. The default mode will anonymize your submission and add line numbers to aid review. Please do \emph{not} refer to these line numbers in your paper as they will be removed during generation of camera-ready copies.
+
+\begin{itemize}
+  \item {\bf Submission (default).} Use \verb+\usepackage{caisc_2026}+ with no options. This anonymizes your paper and adds line numbers to aid review. The footer displays ``Submitted to 1st Conference For AI Scientists (CAISc 2026). Do not distribute.''
+
+  \item \verb+final+. Use \verb+\usepackage[final]{caisc_2026}+ for the camera-ready copy of accepted papers. This removes anonymization and line numbers, and displays ``Published at 1st Conference For AI Scientists (CAISc 2026).'' in the footer. Please \textbf{do not} use this option unless your paper has been accepted to CAISc.
+
+  \item \verb+preprint+. Use \verb+\usepackage[preprint]{caisc_2026}+ to create a non-anonymized preprint version suitable for upload to, e.g., arXiv. This will display the text ``Preprint.'' in the footer. This version may be distributed as you see fit, as long as you do not say which conference it was submitted to.
+
+  \item \verb+nonatbib+. Use \verb+\usepackage[nonatbib]{caisc_2026}+ to prevent the style file from loading the \verb+natbib+ bibliography package, in case it clashes with another package you use.
+\end{itemize}
+
+\subsection{Authorship, Archival, and Mandatory Checklists Policy}
+\label{authorship_checklists}
+
+\paragraph{Authorship Policy}
+In accordance with OpenReview guidelines, only human authors should be listed in the author block of the paper. AI systems (such as ChatGPT, Claude, AI Scientist, or similar tools) should {\bf not} be listed as authors. Instead, the role and extent of AI involvement in the research must be documented in the mandatory checklists described below.
+
+\paragraph{Archival Policy}
+Submissions to both tracks may be archival or non-archival, at the discretion of the authors. Authors select their preference at submission time on OpenReview.
+\begin{itemize}
+    \item\textbf{Archival:} If accepted, the paper will be part of the official CAISc 2026 record, permanently and publicly hosted on OpenReview and the conference website. Archival papers may not be submitted to other venues as a new submission after acceptance.
+    \item\textbf{Non-Archival:} If accepted, the paper will be presented at the conference but authors retain full publication rights. Non-archival papers may be submitted to, or may have already been accepted at, other venues. Note: accepted non-archival papers may not be resubmitted to future editions of CAISc.
+\end{itemize}
+
+\paragraph{Mandatory Checklists}
+All submissions must include the following two checklists, which are provided at the end of this template. {\bf Papers omitting either checklist will be desk rejected.} The checklists do not count towards the page limit. Checklist responses may be analyzed in aggregate to study patterns in AI-assisted scientific work at CAISc 2026
+
+\begin{enumerate}
+  \item {\bf \hyperref[checklist_ai_involvement]{Conference For AI Scientists 2026 - AI Involvement Checklist}.} Comprises two parts: a \emph{Research Stage Assessment} that rates AI involvement (A-D scale) and iteration effort at each stage of the research process (hypothesis development, experimental design, analysis, and writing), and an \emph{AI System Documentation} section describing the AI systems used and their observed limitations.
+
+  \item {\bf \hyperref[checklist_reproducibility]{Conference For AI Scientists 2026 - Reproducibility and Responsibility Checklist}.} Addresses reproducibility, transparency, research ethics, and societal impact. Authors must answer Yes/No/NA with a brief justification for each question.
+\end{enumerate}
+
+\section{Track-Specific Instructions}
+\label{track_instructions}
+
+CAISc 2026 accepts submissions to two tracks. Both tracks share the same page limit, formatting, and checklist requirements described above.
+
+\paragraph{Open-Ended Track}
+Standard research paper structure. Submissions may include existing, in-progress, or new work, as long as it meets the primary AI authorship criteria for the conference. Refer to the conference website for full details.
+
+\paragraph{Verifiable Track}
+Submit a solution to a problem from the curated list on the conference website (\url{https://caisc2026.github.io/cfp.html}). The paper should describe which problem was attempted, the approach and methodology used, and the results achieved. The problem attempted must be cited using the BibTeX entry provided on the specific problem page. The final artifact for verification should be submitted in the format specified on the problem page. A description of the AI system's search strategy and trajectory is encouraged, as studying how different systems approach the same problem is a core research goal of CAISc.
+
+\section{General Formatting Instructions}
+\label{gen_inst}
+
+The text must be confined within a rectangle 5.5~inches (33~picas) wide and 9~inches (54~picas) long. The left margin is 1.5~inch (9~picas).  Use 10~point type with a vertical spacing (leading) of 11~points.  Times New Roman is the preferred typeface throughout, and will be selected for you by default. Paragraphs are separated by \nicefrac{1}{2}~line space (5.5 points), with no indentation.
+
+The paper title should be 17~point, initial caps/lower case, bold, centered between two horizontal rules. The top and bottom rules should be 2~points thick. Allow \nicefrac{1}{4}~inch space above and below the title to rules. All pages
+should start at 1~inch (6~picas) from the top of the page.
+
+For the final version, authors' names are set in boldface, and each name is centered above the corresponding address. The lead author's name is to be listed first (left-most), and the co-authors' names (if different address) are set to follow. If there is only one co-author, list both author and co-author side by side.
+
+Please pay special attention to the instructions in Section \ref{others} regarding figures, tables, acknowledgments, and references.
+
+\section{Headings: first level}
+\label{headings}
+
+All headings should be lower case (except for first word and proper nouns),
+flush left, and bold.
+
+First-level headings should be in 12-point type.
+
+\subsection{Headings: second level}
+
+Second-level headings should be in 10-point type.
+
+\subsubsection{Headings: third level}
+
+Third-level headings should be in 10-point type.
+
+\paragraph{Paragraphs}
+
+There is also a \verb+\paragraph+ command available, which sets the heading in bold, flush left, and inline with the text, with the heading followed by 1\,em of space.
+
+\section{Citations, Figures, Tables, References}
+\label{others}
+
+These instructions apply to everyone.
+
+\subsection{Citations Within the Text}
+
+The \verb+natbib+ package will be loaded for you by default.  Citations may be author/year or numeric, as long as you maintain internal consistency.  As to the format of the references themselves, any style is acceptable as long as it is used consistently.
+
+The documentation for \verb+natbib+ may be found at
+\begin{center}
+  \url{http://mirrors.ctan.org/macros/latex/contrib/natbib/natnotes.pdf}
+\end{center}
+Of note is the command \verb+\citet+, which produces citations appropriate for use in inline text. For example,
+\begin{verbatim}
+   \citet{hasselmo} investigated\dots
+\end{verbatim}
+produces
+\begin{quote}
+  Hasselmo, et al.\ (1995) investigated\dots
+\end{quote}
+
+If you wish to load the \verb+natbib+ package with options, you may add the following before loading the \verb+caisc_2026+ package:
+\begin{verbatim}
+   \PassOptionsToPackage{options}{natbib}
+\end{verbatim}
+
+If \verb+natbib+ clashes with another package you load, you can add the optional argument \verb+nonatbib+ when loading the style file:
+\begin{verbatim}
+   \usepackage[nonatbib]{caisc_2026}
+\end{verbatim}
+
+As submission is double blind, refer to your own published work in the third person. That is, use ``In the previous work of Jones et al.\ [4],'' not ``In our previous work [4].'' If you cite your other papers that are not widely available
+(e.g., a journal paper under review), use anonymous author names in the citation, e.g., an author of the form ``A.\ Anonymous'' and include a copy of the anonymized paper in the supplementary material.
+
+\subsection{Footnotes}
+
+Footnotes should be used sparingly.  If you do require a footnote, indicate footnotes with a number\footnote{Sample of the first footnote.} in the text. Place the footnotes at the bottom of the page on which they appear. Precede the footnote with a horizontal rule of 2~inches (12~picas).
+
+Note that footnotes are properly typeset \emph{after} punctuation marks.\footnote{As in this example.}
+
+\subsection{Figures}
+
+\begin{figure}
+  \centering
+  \fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+  \caption{Sample figure caption.}
+\end{figure}
+
+All artwork must be neat, clean, and legible. Lines should be dark enough for purposes of reproduction. The figure number and caption always appear after the figure. Place one line space before the figure caption and one line space after the figure. The figure caption should be lower case (except for first word and proper nouns); figures are numbered consecutively.
+
+You may use color figures.  However, it is best for the figure captions and the paper body to be legible if the paper is printed in either black/white or in color.
+
+\subsection{Tables}
+
+All tables must be centered, neat, clean and legible.  The table number and title always appear before the table.  See Table~\ref{sample-table}.
+
+Place one line space before the table title, one line space after the table title, and one line space after the table. The table title must be lower case (except for first word and proper nouns); tables are
+numbered consecutively.
+
+Note that publication-quality tables \emph{do not contain vertical rules.} We strongly suggest the use of the \verb+booktabs+ package, which allows for typesetting high-quality, professional tables:
+\begin{center}
+  \url{https://www.ctan.org/pkg/booktabs}
+\end{center}
+This package was used to typeset Table~\ref{sample-table}.
+
+\begin{table}
+  \caption{Sample table title}
+  \label{sample-table}
+  \centering
+  \begin{tabular}{lll}
+    \toprule
+    \multicolumn{2}{c}{Part}                   \\
+    \cmidrule(r){1-2}
+    Name     & Description     & Size ($\mu$m) \\
+    \midrule
+    Dendrite & Input terminal  & $\sim$100     \\
+    Axon     & Output terminal & $\sim$10      \\
+    Soma     & Cell body       & up to $10^6$  \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Math}
+Note that display math in bare TeX commands will not create correct line numbers for submission. Please use LaTeX (or AMSTeX) commands for unnumbered display math. (You really shouldn't be using \$\$ anyway; see \url{https://tex.stackexchange.com/questions/503/why-is-preferable-to} and \url{https://tex.stackexchange.com/questions/40492/what-are-the-differences-between-align-equation-and-displaymath} for more information.)
+
+\subsection{Final Instructions}
+
+Do not change any aspects of the formatting parameters in the style files.  In particular, do not modify the width or length of the rectangle the text should fit into, and do not change font sizes (except perhaps in the \textbf{References} section; see below). Please note that pages should be numbered.
+
+\section{Preparing PDF Files}
+
+Please prepare submission files with paper size ``US Letter,'' and not, for example, ``A4.''
+
+Fonts were the main cause of problems in the past years. Your PDF file must only contain Type 1 or Embedded TrueType fonts. Here are a few instructions to achieve this.
+
+\begin{itemize}
+
+\item You should directly generate PDF files using \verb+pdflatex+.
+
+\item You can check which fonts a PDF files uses.  In Acrobat Reader, select the menu Files$>$Document Properties$>$Fonts and select Show All Fonts. You can also use the program \verb+pdffonts+ which comes with \verb+xpdf+ and is available out-of-the-box on most Linux machines.
+
+\item \verb+xfig+ "patterned" shapes are implemented with bitmap fonts. Use "solid" shapes instead.
+
+\item The \verb+\bbold+ package almost always uses bitmap fonts. You should use the equivalent AMS Fonts:
+\begin{verbatim}
+   \usepackage{amsfonts}
+\end{verbatim}
+followed by, e.g., \verb+\mathbb{R}+, \verb+\mathbb{N}+, or \verb+\mathbb{C}+ for $\mathbb{R}$, $\mathbb{N}$ or $\mathbb{C}$.  You can also use the following workaround for reals, natural and complex:
+\begin{verbatim}
+   \newcommand{\RR}{I\!\!R} %real numbers
+   \newcommand{\Nat}{I\!\!N} %natural numbers
+   \newcommand{\CC}{I\!\!\!\!C} %complex numbers
+\end{verbatim}
+Note that \verb+amsfonts+ is automatically loaded by the \verb+amssymb+ package.
+
+\end{itemize}
+
+If your file contains type 3 fonts or non embedded TrueType fonts, we will ask you to fix it.
+
+\subsection{Margins in \LaTeX{}}
+
+Most of the margin problems come from figures positioned by hand using \verb+\special+ or other commands. We suggest using the command \verb+\includegraphics+ from the \verb+graphicx+ package. Always specify the figure width as a multiple of the line width as in the example below:
+\begin{verbatim}
+   \usepackage[pdftex]{graphicx} ...
+   \includegraphics[width=0.8\linewidth]{myfile.pdf}
+\end{verbatim}
+See Section 4.4 in the graphics bundle documentation (\url{http://mirrors.ctan.org/macros/latex/required/graphics/grfguide.pdf})
+
+A number of width problems arise when \LaTeX{} cannot properly hyphenate a line. Please give LaTeX hyphenation hints using the \verb+\-+ command when necessary.
+
+\begin{ack}
+Use unnumbered first level headings for the acknowledgments. All acknowledgments go at the end of the paper before the list of references. Moreover, you are required to declare funding (financial activities supporting the submitted work) and competing interests (related financial activities outside the submitted work). More information about this disclosure can be found at the conference website: \url{https://caisc2026.github.io/cfp.html}.
+
+Do {\bf not} include this section in the anonymized submission, only in the final paper. You can use the \texttt{ack} environment provided in the style file to automatically hide this section in the anonymized submission.
+\end{ack}
+
+\section*{References}
+
+References follow the acknowledgments in the camera-ready paper. Use unnumbered first-level heading for the references. Any choice of citation style is acceptable as long as you are consistent. It is permissible to reduce the font size to \verb+small+ (9 point) when listing the references. Note that the Reference section does not count towards the page limit. 
+\medskip
+
+{
+\small
+
+[1] Alexander, J.A.\ \& Mozer, M.C.\ (1995) Template-based algorithms for connectionist rule extraction. In G.\ Tesauro, D.S.\ Touretzky and T.K.\ Leen (eds.), {\it Advances in Neural Information Processing Systems 7}, pp.\ 609-616. Cambridge, MA: MIT Press.
+
+
+[2] Bower, J.M.\ \& Beeman, D.\ (1995) {\it The Book of GENESIS: Exploring Realistic Neural Models with the GEneral NEural SImulation System.}  New York: TELOS/Springer--Verlag.
+
+
+[3] Hasselmo, M.E., Schnell, E.\ \& Barkai, E.\ (1995) Dynamics of learning and recall at excitatory recurrent synapses and cholinergic modulation in rat hippocampal region CA3. {\it Journal of Neuroscience} {\bf 15}(7):5249-5262.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\section{Technical Appendices and Supplementary Material}
+Technical appendices with additional results, figures, graphs and proofs may be submitted with the paper submission before the full submission deadline, or as a separate PDF in the ZIP file below before the supplementary material deadline. There is no page limit for the technical appendices.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+
+\section*{Conference For AI Scientists 2026 - AI Involvement Checklist}
+\label{checklist_ai_involvement}
+
+This checklist is designed to allow you to explain the role of AI in your research. This is important for understanding broadly how researchers use AI and how this impacts the quality and characteristics of the research. 
+
+The checklist has two parts: \textbf{Research Stage Assessment} (items 1-4), where you rate the level of AI involvement and iteration effort at each stage of the research process, and \textbf{AI System Documentation} (items 5-6), where you provide free-text descriptions of the AI systems used and their observed limitations.
+
+IMPORTANT, please:
+\begin{itemize}
+    \item {\bf Do not remove the checklist! Papers not including the checklist will be desk rejected.} 
+    \item {\bf Delete this instruction block, but keep the section heading ``Conference For AI Scientists 2026 - AI Involvement Checklist" and both subsection headings below.}
+    \item  {\bf Keep all checklist questions/answers and guidelines.}
+    \item {\bf Do not modify the questions and only use the provided macros for your answers}.
+\end{itemize}
+
+\subsection*{Research Stage Assessment}
+
+For items 1-4, give a score from the scale below that defines the role of AI in each part of the scientific process. The scores are as follows:
+
+\begin{itemize}
+    \item \involvementA{} \textbf{Human-generated}: Humans generated 95\% or more of the research, with AI being of minimal involvement.
+    \item \involvementB{} \textbf{Mostly human, assisted by AI}: The research was a collaboration between humans and AI models, but humans produced the majority (>50\%) of the research.
+    \item \involvementC{} \textbf{Mostly AI, assisted by human}: The research task was a collaboration between humans and AI models, but AI produced the majority (>50\%) of the research.
+    \item \involvementD{} \textbf{AI-generated}: AI performed over 95\% of the research. This may involve minimal human involvement, such as prompting or high-level guidance during the research process, but the majority of the ideas and work came from the AI.
+\end{itemize}
+
+For each research stage where AI was involved, i.e. where you selected \involvementB{}, \involvementC{}, or \involvementD{}, please also indicate the approximate level of iteration effort required using the provided iteration macros. Count substantive attempts, prompts, runs, agent trajectories, or course corrections; do not count minor wording edits.
+
+\begin{itemize}
+    \item \iterationLow{}: approximately 1-10 substantive attempts.
+    \item \iterationMedium{}: approximately 10-100 substantive attempts, with some failed attempts or course corrections.
+    \item \iterationHigh{}: approximately 100+ substantive attempts, with substantial exploration, failures, or trial-and-error.
+    \item \iterationNA{}: not applicable because AI involvement was \involvementA{}.
+    \item \iterationUnclear{}: the authors cannot reasonably estimate.
+\end{itemize}
+
+These categories leave room for interpretation, so we ask that the authors also include a brief explanation elaborating on how AI was involved in the tasks for each category. Please keep your explanation to less than 150 words.
+
+\begin{enumerate}
+
+    \item \textbf{Hypothesis development}: Hypothesis development includes the process by which you came to explore this research topic and research question. This can involve the background research performed by either researchers or by AI. This can also involve whether the idea was proposed by researchers or by AI. 
+
+    Answer: \involvementTODO{} % Answer with \involvementA{}, \involvementB{}, \involvementC{}, or \involvementD{}
+
+    Iteration Effort: \iterationTODO{} % Answer with \iterationLow{}, \iterationMedium{}, \iterationHigh{}, \iterationNA{}, or \iterationUnclear{}
+    
+    Explanation: \justificationTODO{}
+    
+    \item \textbf{Experimental design and implementation}: This category includes design of experiments that are used to test the hypotheses, coding and implementation of computational methods, and the execution of these experiments. 
+
+    Answer: \involvementTODO{} % Answer with \involvementA{}, \involvementB{}, \involvementC{}, or \involvementD{}
+
+    Iteration Effort: \iterationTODO{} % Answer with \iterationLow{}, \iterationMedium{}, \iterationHigh{}, \iterationNA{}, or \iterationUnclear{}
+    
+    Explanation: \justificationTODO{}
+    
+    \item \textbf{Analysis of data and interpretation of results}: This category encompasses any process to organize and process data for the experiments in the paper. It also includes interpretations of the results of the study.
+
+    Answer: \involvementTODO{} % Answer with \involvementA{}, \involvementB{}, \involvementC{}, or \involvementD{}
+
+    Iteration Effort: \iterationTODO{} % Answer with \iterationLow{}, \iterationMedium{}, \iterationHigh{}, \iterationNA{}, or \iterationUnclear{}
+    
+    Explanation: \justificationTODO{}
+    
+    \item \textbf{Writing}: This includes any processes for compiling results, methods, etc. into the final paper form. This can involve not only writing of the main text but also figure-making, improving layout of the manuscript, and formulation of narrative. 
+
+    Answer: \involvementTODO{} % Answer with \involvementA{}, \involvementB{}, \involvementC{}, or \involvementD{}
+
+    Iteration Effort: \iterationTODO{} % Answer with \iterationLow{}, \iterationMedium{}, \iterationHigh{}, \iterationNA{}, or \iterationUnclear{}
+    
+    Explanation: \justificationTODO{}
+
+\end{enumerate}
+
+\subsection*{AI System Documentation}
+
+For items 5-6, provide a free-text description.
+
+\begin{enumerate}
+    \setcounter{enumi}{4}
+
+    \item \textbf{AI systems used}: Describe all AI systems used in this research without naming specific products or models. Use system-level descriptors only (e.g., ``a frontier large language model'', ``a protein structure prediction system'', ``a custom multi-agent framework built on open-source models''). Include relevant details such as system type, scale, and capabilities. \textbf{Specific model and product names should only be included in the camera-ready version.}
+
+    Description: \justificationTODO{}
+
+    \item \textbf{Observed AI Limitations}: What specific limitations and failure modes have you observed when using AI as a partner or lead author?
+
+    Description: \justificationTODO{}
+
+\end{enumerate}
+
+\newpage
+
+\section*{Conference For AI Scientists 2026 - Reproducibility and Responsibility Checklist}
+\label{checklist_reproducibility}
+
+%%% BEGIN INSTRUCTIONS %%%
+The checklist is designed to encourage best practices for responsible machine learning research, addressing issues of reproducibility, transparency, research ethics, and societal impact. The checklist should follow the references and follow the (optional) supplemental material. The checklist does NOT count towards the page limit. 
+
+Please read the checklist guidelines carefully for information on how to answer these questions. Do not remove the checklist: {\bf Papers not including the checklist will be desk rejected.} 
+
+For each question in the checklist:
+\begin{itemize}
+    \item You should answer \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item \answerNA{} means either that the question is Not Applicable for that particular paper or the relevant information is Not Available.
+    \item Please provide a short (1–2 sentence) justification right after your answer (even for NA). 
+\end{itemize}
+
+{\bf The checklist answers are an integral part of your paper submission.} They are visible to the reviewers and area chairs. You will be asked to also include it (after eventual revisions) with the final version of your paper, and its final version will be published with the paper.
+
+The reviewers of your paper will be asked to use the checklist as one of the factors in their evaluation. While "\answerYes{}" is generally preferable to "\answerNo{}", it is perfectly acceptable to answer "\answerNo{}" provided a proper justification is given. In general, answering "\answerNo{}" or "\answerNA{}" is not grounds for rejection. While the questions are phrased in a binary way, we acknowledge that the true answer is often more nuanced, so please just use your best judgment and write a justification to elaborate. All supporting evidence can appear either in the main paper or the supplemental material, provided in appendix. If you answer \answerYes{} to a question, in the justification please point to the section(s) where related material for the question can be found.
+
+IMPORTANT, please:
+\begin{itemize}
+    \item {\bf Delete this instruction block, but keep the section heading ``Conference For AI Scientists 2026 - Reproducibility and Responsibility Checklist"},
+    \item  {\bf Keep the checklist subsection headings, questions/answers and guidelines below.}
+    \item {\bf Do not modify the questions and only use the provided macros for your answers}.
+\end{itemize} 
+%%% END INSTRUCTIONS %%%
+
+
+\begin{enumerate}
+
+\item {\bf Claims}
+    \item[] Question: Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item The answer NA means that the abstract and introduction do not include the claims made in the paper.
+        \item The abstract and/or introduction should clearly state the claims made, including the contributions made in the paper and important assumptions and limitations. A No or NA answer to this question will not be perceived well by the reviewers. 
+        \item The claims made should match theoretical and experimental results, and reflect how much the results can be expected to generalize to other settings. 
+        \item It is fine to include aspirational goals as motivation as long as it is clear that these goals are not attained by the paper. 
+    \end{itemize}
+
+\item {\bf Limitations}
+    \item[] Question: Does the paper discuss the limitations of the work performed by the authors?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item The answer NA means that the paper has no limitation while the answer No means that the paper has limitations, but those are not discussed in the paper. 
+        \item The authors are encouraged to create a separate "Limitations" section in their paper.
+        \item The paper should point out any strong assumptions and how robust the results are to violations of these assumptions (e.g., independence assumptions, noiseless settings, model well-specification, asymptotic approximations only holding locally). The authors should reflect on how these assumptions might be violated in practice and what the implications would be.
+        \item The authors should reflect on the scope of the claims made, e.g., if the approach was only tested on a few datasets or with a few runs. In general, empirical results often depend on implicit assumptions, which should be articulated.
+        \item The authors should reflect on the factors that influence the performance of the approach. For example, a facial recognition algorithm may perform poorly when image resolution is low or images are taken in low lighting. 
+        \item The authors should discuss the computational efficiency of the proposed algorithms and how they scale with dataset size.
+        \item If applicable, the authors should discuss possible limitations of their approach to address problems of privacy and fairness.
+        \item While the authors might fear that complete honesty about limitations might be used by reviewers as grounds for rejection, a worse outcome might be that reviewers discover limitations that aren't acknowledged in the paper. Reviewers will be specifically instructed to not penalize honesty concerning limitations.
+    \end{itemize}
+
+\item {\bf Theory assumptions and proofs}
+    \item[] Question: For each theoretical result, does the paper provide the full set of assumptions and a complete (and correct) proof?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item The answer NA means that the paper does not include theoretical results. 
+        \item All the theorems, formulas, and proofs in the paper should be numbered and cross-referenced.
+        \item All assumptions should be clearly stated or referenced in the statement of any theorems.
+        \item The proofs can either appear in the main paper or the supplemental material, but if they appear in the supplemental material, the authors are encouraged to provide a short proof sketch to provide intuition. 
+    \end{itemize}
+
+    \item {\bf Experimental result reproducibility}
+    \item[] Question: Does the paper fully disclose all the information needed to reproduce the main experimental results of the paper to the extent that it affects the main claims and/or conclusions of the paper (regardless of whether the code and data are provided or not)?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item The answer NA means that the paper does not include experiments.
+        \item If the paper includes experiments, a No answer to this question will not be perceived well by the reviewers: Making the paper reproducible is important.
+        \item If the contribution is a dataset and/or model, the authors should describe the steps taken to make their results reproducible or verifiable. 
+        \item We recognize that reproducibility may be tricky in some cases, in which case authors are welcome to describe the particular way they provide for reproducibility. In the case of closed-source models, it may be that access to the model is limited in some way (e.g., to registered users), but it should be possible for other researchers to have some path to reproducing or verifying the results.
+    \end{itemize}
+
+\item {\bf Open access to data and code}
+    \item[] Question: Does the paper provide open access to the data and code, with sufficient instructions to faithfully reproduce the main experimental results, as described in supplemental material?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item The answer NA means that paper does not include experiments requiring code.
+        \item While we encourage the release of code and data, we understand that this might not be possible, so “No” is an acceptable answer. Papers cannot be rejected simply for not including code, unless this is central to the contribution (e.g., for a new open-source benchmark).
+        \item At submission time, to preserve anonymity, the authors should release anonymized versions (if applicable).
+        \item Please include anonymized code and data files (if applicable) as supplementary materials where relevant. The instructions should contain the exact command and environment needed to run to reproduce the results. 
+    \end{itemize}
+
+\item {\bf Experimental setting/details}
+    \item[] Question: Does the paper specify all the training and test details (e.g., data splits, hyperparameters, how they were chosen, type of optimizer, etc.) necessary to understand the results?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item The answer NA means that the paper does not include experiments.
+        \item The experimental setting should be presented in the core of the paper to a level of detail that is necessary to appreciate the results and make sense of them.
+        \item The full details can be provided either with the code, in appendix, or as supplemental material.
+    \end{itemize}
+
+\item {\bf Experiment statistical significance}
+    \item[] Question: Does the paper report error bars suitably and correctly defined or other appropriate information about the statistical significance of the experiments?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item The answer NA means that the paper does not include experiments.
+        \item The authors should answer "Yes" if the results are accompanied by error bars, confidence intervals, or statistical significance tests, at least for the experiments that support the main claims of the paper.
+        \item The factors of variability that the error bars are capturing should be clearly stated (for example, train/test split, initialization, or overall run with given experimental conditions).
+    \end{itemize}
+
+\item {\bf Experiments compute resources}
+    \item[] Question: For each experiment, does the paper provide sufficient information on the computer resources (type of compute workers, memory, time of execution) needed to reproduce the experiments?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item The answer NA means that the paper does not include experiments.
+        \item The paper should indicate the type of compute workers CPU or GPU, internal cluster, or cloud provider, including relevant memory and storage.
+        \item The paper should provide the amount of compute required for each of the individual experimental runs as well as estimate the total compute. 
+    \end{itemize}
+    
+\item {\bf Research Ethics}
+    \item[] Question: Does the research conducted in the paper conform with the \href{https://neurips.cc/Conferences/2026/MainTrackHandbook}{NeurIPS Code of Ethics}, except where CAISc's AI authorship policies apply?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item All submissions should adhere to the \href{https://neurips.cc/Conferences/2026/MainTrackHandbook}{NeurIPS Code of Ethics}, except where CAISc's AI authorship policies apply.
+        \item The answer NA means that the authors have not reviewed the NeurIPS Code of Ethics.
+        \item If the authors answer No, they should explain the special circumstances that require a deviation from the Code of Ethics.
+    \end{itemize}
+
+
+\item {\bf Broader impacts}
+    \item[] Question: Does the paper discuss both potential positive societal impacts and negative societal impacts of the work performed?
+    \item[] Answer: \answerTODO{} % Replace by \answerYes{}, \answerNo{}, or \answerNA{}.
+    \item[] Justification: \justificationTODO{}
+    \item[] Guidelines:
+    \begin{itemize}
+        \item The answer NA means that there is no societal impact of the work performed.
+        \item If the authors answer NA or No, they should explain why their work has no societal impact or why the paper does not address societal impact.
+        \item Examples of negative societal impacts include potential malicious or unintended uses (e.g., disinformation, generating fake profiles, surveillance), fairness considerations, privacy considerations, and security considerations.
+        \item If there are negative societal impacts, the authors could also discuss possible mitigation strategies.
+    \end{itemize}
+
+
+\end{enumerate}
+
+
+\end{document}
