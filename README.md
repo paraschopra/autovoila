@@ -1,4 +1,4 @@
-This is Lossfunk's autoresearch prompt for beginner / student researchers in ML/AI.
+This is [Lossfunk's](lossfunk.com) autoresearch prompt for beginner / student researchers in ML/AI.
 
 ## How to use it
 - Install Claude Code (and have a subscription for it!)
